@@ -6,11 +6,13 @@ using namespace std;
 Game::Game()
 {
 
-	int col, row;
-	bomb = 0;                           //ÁÇ∏ÂΩàÊï∏ÁÇ∫0
-	END = 0;                            //1ÁÇ∫ÁµêÊùü
+	
+	int col ;
+	int row;
+	bomb = 0;                           //¨µºuº∆¨∞0
+	END = 0;                            //1¨∞µ≤ßÙ
 
-	for (int r = 0; r < MAXROW; r++)           //ÂÖ®ÈÉ®Ê≠∏ÁÇ∫Êú™ÁøªÈñãÂçÄÂüü,‰∏¶‰∏îÁÇ∫ÂÆâÂÖ®ÂçÄÂüü
+	for (int r = 0; r < MAXROW; r++)           //•˛≥°¬k¨∞•º¬Ω∂}∞œ∞Ï,®√•B¨∞¶w•˛∞œ∞Ï
 	{
 		for (int c = 0; c < MAXCOL; c++)
 		{
@@ -18,7 +20,7 @@ Game::Game()
 		}
 	}
 
-	for (bomb = 1; bomb <= 40; bomb++)        //‰∫ÇÊï∏Êï£Êí≠ÁÇ∏ÂΩà
+	for (bomb = 1; bomb <= 40; bomb++)        //∂√º∆¥≤ºΩ¨µºu
 	{
 
 		row = (rand() % (MAXROW)) + 0;
@@ -44,10 +46,10 @@ int Game::Neighbors(int col, int row)
 	else
 		c = col;
 
-	if (MAP[r][c] == BOMB)                         //Âà§Êñ∑ÊòØÂê¶ÁÇ∫ÁÇ∏ÂΩà
+	if (MAP[r][c] == BOMB)                         //ßP¬_¨Oß_¨∞¨µºu
 		return BOOM;
 
-	for (r = row - 2; r <= row; r++)                  //Ë®àÁÆóÈÄ±ÈÅ≠ÁÇ∏ÂΩàÊï∏Èáè
+	for (r = row - 2; r <= row; r++)                  //≠p∫‚∂gæD¨µºuº∆∂q
 	{
 		for (c = col - 2; c <= col; c++)
 		{
@@ -67,14 +69,29 @@ int Game::Neighbors(int col, int row)
 }
 void Game::input_MAP()
 {
-	int col, row;
 
-	cout << "Ê≠§ÈÅäÊà≤ÁÇ∫Ë∏©Âú∞Èõ∑,Ë´ãËº∏ÂÖ•ÂÖàËº∏ÂÖ•xÂÜçËº∏ÂÖ•y" << endl;
-	cin >> col >> row;
-	if (Neighbors(col, row) == 9)
+	string r;
+	string c;
+	
+
+	cout << "Ω–øÈ§J•˝øÈ§JxÆyº–¶AøÈ§JyÆyº–" << endl;
+	cin >> c>> r;
+	
+		
+	if (c <= "16" && c > "0" or r <= "16" && r > "0")
+	{
+	}
+	int col =atoi(c.c_str());
+	int row =atoi(r.c_str());
+
+		
+
+
+	if (Neighbors(col, row) == 9 )
 	{
 		END = 1;
 	}
+	
 }
 void Game::output_MAP()
 {
