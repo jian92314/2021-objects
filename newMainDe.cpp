@@ -71,7 +71,7 @@ void Game::input_MAP()
 
 	cout << "此遊戲為踩地雷,請輸入先輸入x(1~16)再輸入y(1~16)" << endl;
 	cin >> col >> row;
-	if(col > 16 || col < 0 && row > 16 || row < 0)   //判斷輸入值
+	if(col > 16 || col <=0 0 && row > 16 || row <=0 0)   //判斷輸入值
 	{
 		cout << "請輸入x範圍(1~16)再輸入y範圍(1~16)" << endl;
 		cin >> col >> row;
